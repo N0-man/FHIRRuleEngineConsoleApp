@@ -1,7 +1,7 @@
 using RulesEngine.Extensions;
 using RulesEngine.Models;
 
-namespace ConsoleApp.Rules
+namespace ConsoleApp.Engine
 {
   class Utils
   {

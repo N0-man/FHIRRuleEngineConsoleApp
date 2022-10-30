@@ -16,7 +16,7 @@
     <Content Include="Data/*">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Update="Workflows\HealthPlan.json">
+    <None Update="Rules\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

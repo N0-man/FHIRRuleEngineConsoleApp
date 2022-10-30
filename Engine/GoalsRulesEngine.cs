@@ -3,7 +3,7 @@ using Hl7.Fhir.Model;
 using Newtonsoft.Json;
 using RulesEngine.Models;
 
-namespace ConsoleApp.Rules
+namespace ConsoleApp.Engine
 {
   class GoalsRulesEngine
   {

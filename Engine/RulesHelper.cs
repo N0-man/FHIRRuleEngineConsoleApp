@@ -1,7 +1,7 @@
 using Hl7.Fhir.Model;
 using static Hl7.Fhir.Model.Goal;
 
-namespace ConsoleApp.Rules
+namespace ConsoleApp.Engine
 {
 
   class RulesHelper
