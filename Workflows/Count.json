@@ -1,0 +1,23 @@
+[
+  {
+    "WorkflowName": "Count",
+    "Rules": [
+      {
+        "RuleName": "GreaterThan3",
+        "SuccessEvent": "Count is greater than 3",
+        "ErrorMessage": "Count should be in between 3 and 8",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "count > 3 && count < 8"
+      },
+      {
+        "RuleName": "LessThan3",
+        "SuccessEvent": "Count is less than 3",
+        "ErrorMessage": "Count should be less than 3",
+        "ErrorType": "Error",
+        "RuleExpressionType": "LambdaExpression",
+        "Expression": "count < 3"
+      }
+    ]
+  }
+]

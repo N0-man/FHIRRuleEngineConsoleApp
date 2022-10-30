@@ -1,0 +1,40 @@
+[
+  {
+    "WorkflowName": "HealthPlan",
+    "Rules": [
+      {
+        "RuleName": "Goal Measure Codes Validation",
+        "ErrorMessage": "Invalid Goal Measures mapped to a Goal",
+        "ErrorType": "Error",
+        "Operator": "Or",
+        "Rules": [
+          {
+            "RuleName": "G1AllwedGoalMeasures",
+            "SuccessEvent": "Have appropirate goal measures for BMI Goal - G1",
+            "ErrorMessage": "Invalid Goal Measure recorded for BMI Goal - G1",
+            "ErrorType": "Error",
+            "RuleExpressionType": "LambdaExpression",
+            "Expression": "goalCode == \"G1\" && RulesHelper.CheckContains(goalMeasureCode, \"GM001,GM004,GM005,GM002\") == true",
+            "Actions": {
+              "OnSuccess": {
+                "Name": "OutputExpression",
+                "Context": {
+                  "WorkflowName": "HealthPlan",
+                  "ruleName": "G1AllwedGoalMeasures"
+                }
+              }
+            }
+          },
+          {
+            "RuleName": "G2AllwedGoalMeasures",
+            "SuccessEvent": "Have appropirate goal measures",
+            "ErrorMessage": "Invalid Goal Measure recorded for G2",
+            "ErrorType": "Error",
+            "RuleExpressionType": "LambdaExpression",
+            "Expression": "goalCode == \"G2\" && RulesHelper.CheckContains(goalMeasureCode, \"GM002\") == true"
+          }
+        ]
+      }
+    ]
+  }
+]

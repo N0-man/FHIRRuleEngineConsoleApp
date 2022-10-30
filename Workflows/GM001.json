@@ -1,0 +1,32 @@
+[
+  {
+    "WorkflowName": "GM001",
+    "Rules": [
+      {
+        "RuleName": "GM001 (Weight) Measures Validations",
+        "ErrorMessage": "GM001 (Weight) Measures Validation Failed",
+        "ErrorType": "Error",
+        "Operator": "AndAlso",
+        "Rules": [
+          {
+            "RuleName": "GM001TargetWeightKg",
+            "SuccessEvent": "GM001 Target Weight in kg is Correct",
+            "ErrorMessage": "Invalid target due month",
+            "ErrorType": "Error",
+            "RuleExpressionType": "LambdaExpression",
+            "Expression": "due.Value >= 1 && due.Value <= 12",
+            "Actions": {
+              "OnSuccess": {
+                "Name": "OutputExpression",
+                "Context": {
+                  "WorkflowName": "HealthPlan",
+                  "ruleName": "G1AllwedGoalMeasures"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

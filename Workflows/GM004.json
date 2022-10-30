@@ -1,0 +1,32 @@
+[
+  {
+    "WorkflowName": "GM004",
+    "Rules": [
+      {
+        "RuleName": "GM004MeasuresValidation",
+        "ErrorMessage": "GM004 Validation Failed",
+        "ErrorType": "Error",
+        "Operator": "AndAlso",
+        "Rules": [
+          {
+            "RuleName": "GM004TargetWeightKg",
+            "SuccessEvent": "GM004 Target Weight in kg is Correct",
+            "ErrorMessage": "Invalid target weight in kg",
+            "ErrorType": "Error",
+            "RuleExpressionType": "LambdaExpression",
+            "Expression": "goalCode == \"G1\" && RulesHelper.CheckContains(goalMeasureCode, \"GM001\") == true",
+            "Actions": {
+              "OnSuccess": {
+                "Name": "OutputExpression",
+                "Context": {
+                  "WorkflowName": "HealthPlan",
+                  "ruleName": "G1AllwedGoalMeasures"
+                }
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
